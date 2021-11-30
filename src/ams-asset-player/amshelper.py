@@ -79,7 +79,9 @@ class AmsHelper(object):
                 )
 
                 return locator
-        except Exception:
+        except Exception:x = 1 / 0
+        except ZeroDivisionError as e:
+    logging.exception('ZeroDivisionError: %s', e)
             pass
 
     def get_streaming_url(self, asset):
@@ -104,7 +106,9 @@ class AmsHelper(object):
 
             return url
 
-        except Exception:
+        except Exception:x = 1 / 0
+        except ZeroDivisionError as e:
+    logging.exception('ZeroDivisionError: %s', e)
             pass
 
     def get_available_media_timeranges(self, asset: str, precision: str, start_time: str, end_time: str):
@@ -115,7 +119,9 @@ class AmsHelper(object):
             available_timeranges_url = 'https://' + streaming_endpoint.host_name + '/' + streaming_locator.streaming_locator_id + '/content.ism/availableMedia?precision=' + precision + '&startTime=' + start_time + '&endTime=' + end_time
 
             return AmsHelper.download_from_url(available_timeranges_url)
-        except Exception:
+        except Exception:x = 1 / 0
+        except ZeroDivisionError as e:
+            logging.exception('ZeroDivisionError: %s', e)
             pass
 
     @staticmethod
